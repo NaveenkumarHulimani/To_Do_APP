@@ -11,13 +11,19 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'  # Use the desired Node.js version
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
 
       - name: Run Myfile.js
+        run: node Myfile.js
+
+      - name: Test Myfile.js
         run: |
-          node Myfile.js
+          node Myfile.js | grep "Test Passed"
