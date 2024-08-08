@@ -16,8 +16,28 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Use the desired Node.js version
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Build
+        run: echo "No build step required for this file"
 
       - name: Run Myfile.js
         run: |
           node Myfile.js
+          
+      - name: Test Myfile.js
+        run: |
+          echo "No specific test framework used. Verifying script execution"
+          node Myfile.js | grep "hello world"
+          
+      - name: Install ESLint
+        run: |
+          npm install eslint --save-dev
+
+      - name: Lint Myfile.js
+        run: |
+          npx eslint Myfile.js
