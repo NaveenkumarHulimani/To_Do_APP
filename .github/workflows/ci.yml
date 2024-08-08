@@ -11,19 +11,15 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Ensure this is the latest version
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4  # Ensure this is the latest version
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use Node.js 20
+          node-version: '20'
 
       - name: Install Dependencies
-        run: |
-          npm install
-
-      - name: Build
-        run: echo "No build step required for this file"
+        run: npm install
 
       - name: Run Myfile.js
         run: |
@@ -31,13 +27,10 @@ jobs:
           
       - name: Test Myfile.js
         run: |
-          echo "No specific test framework used. Verifying script execution"
           node Myfile.js | grep "hello world"
           
       - name: Install ESLint
-        run: |
-          npm install eslint --save-dev
+        run: npm install eslint --save-dev
 
       - name: Lint Myfile.js
-        run: |
-          npx eslint Myfile.js
+        run: npx eslint Myfile.js
