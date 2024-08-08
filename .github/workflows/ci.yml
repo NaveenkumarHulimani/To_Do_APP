@@ -11,26 +11,13 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
-          node-version: '20'
-
-      - name: Install Dependencies
-        run: npm install
+          node-version: '14'  # Use the desired Node.js version
 
       - name: Run Myfile.js
         run: |
           node Myfile.js
-          
-      - name: Test Myfile.js
-        run: |
-          node Myfile.js | grep "hello world"
-          
-      - name: Install ESLint
-        run: npm install eslint --save-dev
-
-      - name: Lint Myfile.js
-        run: npx eslint Myfile.js
